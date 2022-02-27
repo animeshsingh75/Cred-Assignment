@@ -6,7 +6,6 @@ import android.graphics.Canvas
 import android.graphics.Point
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.DragEvent
 import android.view.View
 import android.view.animation.Animation
@@ -16,7 +15,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.res.ResourcesCompat
-import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
 import com.example.credassignment.R
 import com.example.credassignment.databinding.ActivityMainBinding
@@ -66,11 +64,16 @@ class MainActivity : AppCompatActivity() {
                     }
                 })
             }else{
-                binding.arrowDown.visibility=View.VISIBLE
-                binding.arrowDown.playAnimation()
-                binding.credLogoContainer.removeView(binding.credLogo)
+                binding.arrowDown.apply {
+                    this.visibility = View.VISIBLE
+                    this.playAnimation()
+                }
                 binding.credLogoContainer.addView(binding.credLogo)
-                Toast.makeText(this,"A failure has occurred.Please try again later",Toast.LENGTH_LONG).show()
+                Toast.makeText(
+                    this,
+                    "A failure has occurred.Please try again later",
+                    Toast.LENGTH_LONG
+                ).show()
             }
         }
     }

@@ -1,6 +1,5 @@
 package com.example.credassignment.ui.viewmodel
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -18,7 +17,6 @@ class MainActivityViewModel : ViewModel() {
             val response = withContext(Dispatchers.IO) {
                 ApiRepository.getSuccess()
             }
-            Log.d("MainActivityViewModel", "fetchFailureResult: $response")
             if (response.isSuccessful) {
                 response.body()?.let {
                     result.postValue(it)

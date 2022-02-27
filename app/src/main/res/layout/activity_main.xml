@@ -116,7 +116,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/logo_drop_container"
-        android:layout_width="match_parent"
+        android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginBottom="40dp"
         android:background="@drawable/ic_circle_container"
